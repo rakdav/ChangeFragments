@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/list_fragment"
+        android:id="@+id/listFragment"
         android:name="com.example.changefragment.ListFragment"
         />
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/detail_fragment"
+        android:id="@+id/detailFragment"
         android:name="com.example.changefragment.DetailFragment"
         />
 </LinearLayout>

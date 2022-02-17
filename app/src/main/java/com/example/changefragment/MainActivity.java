@@ -2,6 +2,7 @@ package com.example.changefragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity implements ListFragment.OnFragmentSendDataListener {
@@ -15,7 +16,14 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnFr
     @Override
     public void onSendData(String data) {
         DetailFragment fragment=(DetailFragment) getSupportFragmentManager().
-                findFragmentById(R.id.detail_fragment);
-        if(fragment!=null) fragment.setSelectedItem(data);
+                findFragmentById(R.id.detailFragment);
+        if(fragment!=null&&fragment.isVisible())
+            fragment.setSelectedItem(data);
+        else
+        {
+            Intent intent=new Intent(getApplicationContext(),DetailActivity.class);
+            intent.putExtra(DetailActivity.SELECTED_ITEM,data);
+            startActivity(intent);
+        }
     }
 }
